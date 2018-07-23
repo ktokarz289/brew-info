@@ -3,20 +3,19 @@ import React from 'react'
 class BrewerySearch extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''};
-
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
+    handleChange(e) {
+        this.props.onBreweryChange(e.target.value);
     }
 
     render() {
+        const brewery = this.props.brewery;
         return (
             <label>
                 Brewery Name:
-                <input type="text" value={this.state.value} 
+                <input type="text" value={brewery} 
                     onChange={this.handleChange} placeholder="Enter brewery name"/>
             </label>
         )
