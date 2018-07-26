@@ -17,11 +17,9 @@ class App extends Component {
 
   handleBrewerySearch() {
     let brewery = this.state.brewery;
-    debugger;
-    let apiKey = "key=" + process.env.REACT_APP_BREWERY_KEY;
-    fetch("/brewery?" + apiKey + "name=" + brewery)
+    fetch("/brewery?brewery=" + brewery)
       .then(response => response.json())
-      .then(data => this.setState({breweries: data}));
+      .then(data => this.setState({breweryList: data}));
   }
 
   render() {
